@@ -1,0 +1,44 @@
+body {
+    background-color: lightblue;
+    width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    padding-top: 1.5em;
+}
+
+ul {
+    padding-left: 1.2em;
+}
+dd {
+    margin: 0;
+}
+dd::after {
+    content: '\A';
+    white-space: pre-line;
+}
+dd:last-of-type::after {
+    content: '';
+}
+dd, dt {
+    display: inline;
+}
+dd, dt, {
+    vertical-align: middle;
+}
+dt {
+    font-weight: bolder;
+}
+dt::after {
+    content: ': ';
+}
+li {
+}
+
+a {
+}
+
+div {
+}
+

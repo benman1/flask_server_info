@@ -1,0 +1,21 @@
+<html>
+<head>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+<style type="text/css">
+
+</style>
+<title>Server info page</title>
+</head>
+
+<body>
+<h1 >Info about the Server</h1>
+<dl>
+      {% for k, v in pages.items() %}
+            <dt>{{ k }}</dt>
+            <dd>{{ v }}</dd>
+      {% endfor %}
+</dl>
+
+
+</body>
+</html>

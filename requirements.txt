@@ -1,0 +1,3 @@
+flask
+psutil
+hurry.filesize
