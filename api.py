@@ -1,11 +1,12 @@
 import os
-from flask import Flask, render_template, url_for
-import psutil
-from hurry.filesize import size
 from collections import OrderedDict
+from flask import Flask, render_template
+from hurry.filesize import size
+import psutil
 
 
 app = Flask(__name__)
+
 
 @app.route('/', methods=['GET'])
 def show_machine_info():
@@ -17,8 +18,9 @@ def show_machine_info():
         return '{}%'.format(round(num, 1))
     app.logger.info('generating information about the server.')
     data = OrderedDict()
-    data['number_of_CPUs'] = os.sysconf(os.sysconf_names["SC_NPROCESSORS_ONLN"])
-    data['cpu_usage_total'] =  percent(psutil.cpu_percent())
+    cpus = os.sysconf(os.sysconf_names['SC_NPROCESSORS_ONLN'])
+    data['number_of_CPUs'] = cpus
+    data['cpu_usage_total'] = percent(psutil.cpu_percent())
     pid = os.getpid()
     py = psutil.Process(pid)
     data['process_cpu_percent'] = percent(py.cpu_percent())
